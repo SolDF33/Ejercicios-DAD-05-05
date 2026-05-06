@@ -1,8 +1,12 @@
-# Imagen a usar
-FROM php:7.0-apache
-# copiamos todos los ficheros en el directorio en cuestion
+# 1. Usamos la versión que permite conectar VS Code 
+FROM php:8.2-apache
+
+# 2. Automatizamos la instalación de Vim (para que no se borre al relanzar)
+RUN apt-get update && apt-get install -y vim
+
+# 3. Copiamos tus archivos locales al contenedor
 COPY src/ /var/www/html
-# Exponemos el puerto 80
+
+# 4. Información extra
 EXPOSE 80
-# Quien lo ha realizado
-MAINTAINER JL Gonzalez “jlgs@cifpvirgendegracia.com”
+LABEL maintainer="Sol De Francesco"

@@ -1,18 +1,40 @@
-# Ejercicio 01: Docker + Apache + Herramientas de Edición
-**Estudiante:** María Soledad De Francesco Del Giorgio  
-**Carrera:** Tecnicatura Superior en Programación Full Stack (2do Año)
+# Ejercicios - Docker
+**Estudiante:** Sol De Francesco 
+**Carrera:** Programación Full Stack 2° Año
+**Materia:** DAD
 
-## 📝 Descripción del Proyecto
-Este ejercicio consistió en la configuración de un entorno de desarrollo basado en contenedores utilizando Docker. Se trabajó sobre una imagen de servidor web Apache con PHP para visualizar contenido estático y dinámico, integrando herramientas de edición remota.
+---
 
-## 🛠️ Tareas Realizadas
+## 🚀 Ejercicio 01: Servidor Web Apache
+Configuración de un entorno básico con Dockerfile personalizado y edición remota.
 
-### 1. Optimización del Dockerfile
-Se modificó la imagen base original para asegurar la compatibilidad con las extensiones de edición remota de Visual Studio Code:
-* **Imagen utilizada:** `php:8.2-apache`
-* **Instalación de paquetes:** Se automatizó la instalación del editor **Vim** mediante el comando:
-  ```dockerfile
-  RUN apt-get update && apt-get install -y vim
+* **Imagen base:** `php:8.2-apache`
+* **Herramientas:** Instalación de `vim` para edición interna.
+* **Resultado:** Servidor activo en puerto 8080.
 
- ![Resultado Web](./ejemplos/ejem01/resultados.png) 
- 
+### Evidencia Ejercicio 01
+![Evidencia Web 01](./ejemplos/ejem01/terminal.png)
+
+---
+
+## 🏗️ Ejercicio 02: WordPress + MariaDB (Multi-Contenedor)
+Despliegue de una arquitectura de dos capas con persistencia de datos.
+
+### 🛠️ Tareas Realizadas
+* **Base de Datos:** Configuración de un contenedor MariaDB (`10.3.9`) con volúmenes para asegurar que la información no se pierda al apagar el contenedor.
+* **Aplicación:** Despliegue de WordPress vinculado a la base de datos mediante `--link`.
+* **Sincronización:** Uso de *bind mounts* para vincular la carpeta local del proyecto con el servidor web.
+
+### 📋 Comandos Clave Utilizados
+1. `docker run -d --name wordpress-db` (Inicia la base de datos).
+2. `docker run -d --name wordpress` (Inicia el sitio web).
+3. `docker ps` (Para verificar que ambos círculos estén en verde).
+
+### Evidencia Ejercicio 02
+![Estado de Contenedores](./ejemplos/ejem02/vs.png) (./ejemplos/ejem02/docker.png) (./ejemplos/ejem02/webej2.png)
+
+
+
+---
+*Documentación generada para la materia Programación Web III.*
+

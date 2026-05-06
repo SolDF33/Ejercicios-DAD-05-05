@@ -31,8 +31,10 @@ Despliegue de una arquitectura de dos capas con persistencia de datos.
 3. `docker ps` (Para verificar que ambos círculos estén en verde).
 
 ### Evidencia Ejercicio 02
-![Estado de Contenedores](./ejemplos/ejem02/vs.png) (./ejemplos/ejem02/docker.png) (./ejemplos/ejem02/webej2.png)
 
+![Vista VS Code](./ejemplos/ejem02/vs.png)
+![Panel Docker](./ejemplos/ejem02/docker.png)
+![Resultado Web](./ejemplos/ejem02/webej2.png)
 
 
 ---

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.3.9
+    container_name: ejem03-wordpress-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: manager
+      MYSQL_PASSWORD: secret
+    volumes:
+      - wordpress-db:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:4.9.8
+    container_name: ejem03-wordpress
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: manager
+      WORDPRESS_DB_PASSWORD: secret
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress:/var/www/html
+    depends_on:
+      - db
+
+volumes:
+  wordpress-db:

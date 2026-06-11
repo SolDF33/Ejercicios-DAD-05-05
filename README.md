@@ -49,7 +49,7 @@ Al intentar ejecutar el script `run.sh` originalmente provisto, se encontraron b
 * **Incompatibilidad de plataforma:** El uso de comandos como `chmod` y el intérprete `/bin/bash` generó errores en entornos Windows nativos (`CommandNotFoundException`).
 * **Dependencias de entorno:** La ruta definida con `$(pwd)` no es compatible de forma nativa en todos los sistemas operativos, causando fallos de resolución de directorios.
 
-![Error de ejecución del script original](error_script.png)
+![Error de ejecución del script original](./ejemplos/ejem03/error_script.png)
 *Figura 1: Error al intentar ejecutar el script de S.O. en PowerShell.*
 
 ## 2. Propuesta de Solución: Infraestructura Declarativa
@@ -63,7 +63,7 @@ Para resolver la fragilidad del despliegue, se migró la lógica del script haci
 ## 3. Validación del despliegue
 Tras corregir la configuración y establecer nombres únicos para los contenedores (prefijo `ejem03-`), el despliegue se completó exitosamente permitiendo la coexistencia con otros ejercicios del repositorio.
 
-![Contenedores en ejecución](docker_desktop_running.png)
+![Contenedores en ejecución](./ejemplos/ejem03/docker_desktop_running.png)
 *Figura 2: Estado final de los contenedores en Docker Desktop.*
 
 ---
@@ -100,10 +100,10 @@ Una vez iniciados, puedes acceder a los servicios en los siguientes puertos:
 ### 📸 Evidencias del Funcionamiento
 
 1. Aplicación PHP funcionando
-![Resultado en el navegador](web.png)
+![Resultado en el navegador](./ejemplos/ejem07/web.png)
 
 2. Panel de administración
-![PhpMyAdmin con datos](phpmyadmin.png)
+![PhpMyAdmin con datos](./ejemplos/ejem07phpmyadmin.png)
 ---
 
 ### 💡 Notas Técnicas y Desafíos Resueltos

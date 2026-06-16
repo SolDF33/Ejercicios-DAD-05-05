@@ -120,3 +120,63 @@ Una vez iniciados, puedes acceder a los servicios en los siguientes puertos:
             -phpMyAdmin: Configurado mediante variables de entorno (PMA_HOST) para detectar automáticamente el contenedor de la base de datos.
 
             -MariaDB: Se ajustaron los permisos del usuario root para permitir la comunicación entre contenedores.
+
+---
+# Ejercicio 09: Arquitectura de Proxy Inverso con Docker
+
+Este proyecto demuestra la implementación de un **Proxy Inverso** utilizando Nginx para gestionar y redirigir el tráfico hacia dos servidores web distintos (Nginx y Apache) dentro de un entorno Docker aislado.
+
+## 🚀 Arquitectura del Proyecto
+
+El sistema está compuesto por tres servicios principales que operan en una red común (`mi-red`):
+
+1. **Reverse Proxy (Nginx):** Actúa como puerta de entrada. Escucha en los puertos 8080 y 8081, redirigiendo el tráfico según el puerto de origen.
+2. **Site1 (Nginx):** Servidor web que aloja el contenido de `site1.example.com`.
+3. **Site2 (Apache):** Servidor web que aloja el contenido de `site2.example.com`.
+
+
+
+## 📋 Estructura de Servicios
+
+| Servicio | Puerto Local | Backend |
+| :--- | :--- | :--- |
+| **Reverse Proxy** | 8080 | Redirige a Nginx (Site1) |
+| **Reverse Proxy** | 8081 | Redirige a Apache (Site2) |
+
+## 🛠️ Cómo ejecutar el proyecto
+
+1. Asegúrate de tener instalado **Docker** y **Docker Compose**.
+2. Navega a la carpeta del ejercicio (`ejem09`):
+ ```bash
+   cd ejem09
+ ```
+3. Levanta los contenedores:
+ ```bash
+docker-compose up -d --build
+ ```
+## 🌐 Verificación
+Una vez los contenedores estén en ejecución (puedes verificar con docker ps), accede a los siguientes enlaces en tu navegador:
+
+Site 1: http://localhost:8080
+
+Site 2: http://localhost:8081
+
+### 💡 Conceptos Clave
+Proxy Inverso: Permite centralizar el tráfico, mejorar la seguridad y gestionar múltiples servicios desde un solo punto de entrada.
+
+Redes Docker (Bridge): Permite que los contenedores se comuniquen entre sí utilizando sus nombres de servicio como dominios internos, eliminando la necesidad de exponer todos los puertos al exterior.
+
+## 📸 Evidencias de Funcionamiento
+
+### 1. Estado de los contenedores
+Aquí puedes ver los tres servicios corriendo perfectamente en Docker:
+![Estado de los contenedores](ejecucion-visual.png)
+
+### 2. Acceso a los servicios
+Al acceder a través del Proxy Inverso, comprobamos el funcionamiento de cada sitio:
+
+* **Site 1 (Nginx):** `http://localhost:8080`
+  ![Vista de Site 1](navegador-site1.png)
+
+* **Site 2 (Apache):** `http://localhost:8081`
+  ![Vista de Site 2](navegador-site2.png)

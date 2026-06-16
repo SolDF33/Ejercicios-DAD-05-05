@@ -18,7 +18,7 @@ docker run -d --name wordpress-db \
 docker run -d --name wordpress \
     --net=mi-network \
     --link wordpress-db:mysql \
-    --mount type=bind,source="$(pwd)"/wordpress,target=/var/www/html \
+    --mount type=bind,source="$(pwd)"/wordpress,target=/var/www/html \bash
     -e WORDPRESS_DB_USER=manager \
     -e WORDPRESS_DB_PASSWORD=secret \
     -p 8080:80 \

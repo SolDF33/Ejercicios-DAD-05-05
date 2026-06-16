@@ -170,13 +170,13 @@ Redes Docker (Bridge): Permite que los contenedores se comuniquen entre sí util
 
 ### 1. Estado de los contenedores
 Aquí puedes ver los tres servicios corriendo perfectamente en Docker:
-![Estado de los contenedores](ejecucion-visual.png)
+![Estado de los contenedores](ejemplos/ejem09/ejecucion-visual.png)
 
 ### 2. Acceso a los servicios
 Al acceder a través del Proxy Inverso, comprobamos el funcionamiento de cada sitio:
 
 * **Site 1 (Nginx):** `http://localhost:8080`
-  ![Vista de Site 1](navegador-site1.png)
+  ![Vista de Site 1](ejemplos/ejem09/navegador-site1.png)
 
 * **Site 2 (Apache):** `http://localhost:8081`
-  ![Vista de Site 2](navegador-site2.png)
+  ![Vista de Site 2](ejemplos/ejem09/navegador-site2.png)
